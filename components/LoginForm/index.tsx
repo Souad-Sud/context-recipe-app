@@ -1,84 +1,82 @@
 "use client";
-  import "./loginForm.scss"
+import { validUsers } from "@/data/user";
+import LoginFormSideContent from "../LoginFormSideContent";
+import "./loginForm.scss";
+import { useState } from "react";
 
 const LoginForm = () => {
-//   const { setUser } = useUserContext();
-//   const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [error, setError] = useState("");
 
-//   const handleSubmit = (e: React.FormEvent) => {
-//     e.preventDefault();
+    const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
 
-//     const foundUser = UserArray.find(
-//       (u) => u.email === email && u.password === password
-//     );
+      const foundUser = validUsers.find(
+        (user) => user.email === email && user.password === password,
+      );
 
-//     if (foundUser) {
-//       setUser(foundUser);
-//       setError("");
-//       router.push("/profile"); // Redirect to home page
-//     } else {
-//       setError("Invalid email or password");
-//     }
-//   };
+      if (foundUser) {
+        setError("");
+        console.log("Login successful");
+      } else {
+        setError("Invalid email or password");
+      }
+    };
 
   return (
     <div className="logInForm">
       <div className="logInForm__flex">
-        {/* <FormSideContent /> */}
+        <LoginFormSideContent />
       </div>
-      <form className="logInForm__form" 
-    //   onSubmit={handleSubmit}
-      >
-        <h1>
-          Welcome! <br /> Sign in to continue
+      <div className="logInForm__form">
+        <h1 className="logInForm__title">
+          Want to discover delicious recipes? <br />
+          Log in now.
         </h1>
-
-        <div className="logInForm__emailContainer">
-          <label htmlFor="email" className="logInForm__label">
-            <input
+        <form onSubmit={handleSubmit}>
+          <div className="logInForm__selectContainer">
+            <select
               id="email"
-              type="email"
-            //   value={email}
-            //   onChange={(e) => setEmail(e.target.value)}
-              placeholder="you@example.com"
-              className="logInForm__input"
+              name="email"
               required
-            />
-          </label>
-        </div>
-
-        <div className="logInForm__passwordContainer">
-          <label htmlFor="password" className="logInForm__label">
-            <input
+              className="logInForm__selectArea"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            >
+              <option value="" className="logInForm__selecDefault">
+                Select your email
+              </option>
+              <option value="user1">User 1</option>
+              <option value="user2">User 2</option>
+              <option value="user3">User 3</option>
+            </select>
+          </div>
+          <div className="logInForm__selectContainer">
+            <select
               id="password"
-              type="password"
-            //   value={password}
-            //   onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="logInForm__input"
-              required
-            />
-          </label>
-        </div>
+              name="password"
+              value={password}
+              className="logInForm__selectArea"
+              onChange={(e) => setPassword(e.target.value)}
+            >
+              <option value="" className="logInForm__selecDefault">
+                Select your password
+              </option>
+              <option value="password1">password 1</option>
+              <option value="password2">password 2</option>
+              <option value="password3">password 3</option>
+            </select>
+          </div>
 
-        {/* {error && <p style={{ color: "red" }}>{error}</p>} */}
+          {error && <p style={{ color: "red" }}>{error}</p>}
 
-        <button type="submit" className="logInForm__submtBtn">
-          Log in
-        </button>
-
-        {/* <label className="logInForm__checkboxLabel">
-          <input type="checkbox" className="logInForm__checkbox" required />I
-          agree to the{" "}
-          <a href="/terms" target="_blank">
-            Terms and Conditions
-          </a> 
-        </label>*/}
-      </form>
+          <button type="submit" className="logInForm__submtBtn">
+            Log in
+          </button>
+        </form>
+      </div>
     </div>
   );
 };
