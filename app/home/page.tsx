@@ -23,8 +23,6 @@ export default function HomePage() {
 
   return (
     <div>
-  
-      <Navigation />
       <main>
         <h1>Home Page</h1>
         <p>Welcome to your dashboard 🎉</p>
