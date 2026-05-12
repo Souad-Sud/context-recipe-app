@@ -1,14 +1,14 @@
+import Logo from "../Logo";
+import Navigation from "../Navigation";
 const Header = () => {
   return (
-    <div>
-      {/* Logo
-           Navigation Links
-           Toggle button(mobile menu) */}
-
-      <main>
-        <h1>My recipe app</h1>
-      </main>
-    </div>
+    <header>
+      <Logo />
+      <div>
+        <Navigation />
+      </div>
+      <h1>My recipe app</h1>
+    </header>
   );
 };
 export default Header;
