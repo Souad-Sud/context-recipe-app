@@ -1,10 +1,10 @@
 import { NavItemType } from "@/utils/types/navLinks"
 export const NavItems: NavItemType[] = [
      {
-          name: "Home Page", link: "/"
+          name: "Home", link: "/"
      },
      {
-          name: "Recipe Page", link: "/recipe"
+          name: "Recipe", link: "/recipe"
      },
 
      {
