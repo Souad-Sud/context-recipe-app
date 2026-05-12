@@ -1,8 +1,9 @@
+import Logo from "../Logo";
 import Navigation from "../Navigation";
 const Header = () => {
   return (
     <header>
-      {/* Logo */}
+      <Logo />
       <div>
         <Navigation />
       </div>
