@@ -4,10 +4,10 @@ import { validUsers } from "@/data/user";
 import LoginFormSideContent from "../LoginFormSideContent";
 import "./loginForm.scss";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useUserContext } from "@/context/UserName";
 
 const LoginForm = () => {
-  const router = useRouter();
+  const { setSavedUserName } = useUserContext();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,11 +23,8 @@ const LoginForm = () => {
     if (foundUser) {
       setError("");
 
-      // save user
-      localStorage.setItem("user", JSON.stringify(foundUser));
-
-      // redirect to home page
-      router.push("/home");
+      // ✅ login with context
+      setSavedUserName(foundUser.email);
     } else {
       setError("Invalid email or password");
     }
