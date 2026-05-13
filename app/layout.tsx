@@ -12,9 +12,17 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
     <>
       {/* HEADER ONLY IF LOGGED IN */}
       {savedUserName && <Header />}
-
-      {/* LOGIN OR APP */}
-      {!savedUserName ? (<LoginForm />) : ( <><main>{children}</main><Footer/></> )}
+      <div className="page">
+        {/* LOGIN OR APP */}
+        {!savedUserName ? (
+          <LoginForm />
+        ) : (
+          <>
+            <main>{children}</main>
+            <Footer />
+          </>
+        )}
+      </div>
     </>
   );
 }
