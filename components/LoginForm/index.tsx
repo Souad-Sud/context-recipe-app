@@ -17,13 +17,12 @@ const LoginForm = () => {
     e.preventDefault();
 
     const foundUser = validUsers.find(
-      (user) => user.email === email && user.password === password
+      (user) => user.email === email && user.password === password,
     );
 
     if (foundUser) {
       setError("");
 
-      // ✅ login with context
       setSavedUserName(foundUser.email);
     } else {
       setError("Invalid email or password");
@@ -50,7 +49,10 @@ const LoginForm = () => {
               required
               className="logInForm__selectArea"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setError("");
+              }}
             >
               <option value="" className="logInForm__selecDefault">
                 Select your email
@@ -68,7 +70,10 @@ const LoginForm = () => {
               name="password"
               value={password}
               className="logInForm__selectArea"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => {
+                setPassword(e.target.value);
+                setError("");
+              }}
             >
               <option value="" className="logInForm__selecDefault">
                 Select your password
