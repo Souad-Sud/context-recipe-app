@@ -1,2 +1,30 @@
 @use "../../style/variables" as vars;
 @use "../../style/mixins" as mixins;
+
+
+.navigation {
+   margin: 0;
+   padding: 0;
+   &__list {
+    display: flex;
+    flex-direction: row;
+    gap: 38px;
+   }
+   &__listItem {
+    list-style: none;
+    padding: 0 10px 0 10px;
+    margin: 0;
+   }
+   &__listItemLinks{
+    text-decoration: none;
+    font-size: 1.3rem;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: rgb(83, 81, 81);
+    text-transform: uppercase
+
+   }
+   &__listItemLink.active {
+    color: red;
+    font-weight: bold;
+   }
+}
