@@ -1,13 +1,14 @@
 import Logo from "../Logo";
 import Navigation from "../Navigation";
+import "./header.scss"
 const Header = () => {
   return (
-    <header>
+    <header className="header">
       <Logo />
       <div>
         <Navigation />
       </div>
-      <h1>My recipe app</h1>
+
     </header>
   );
 };
