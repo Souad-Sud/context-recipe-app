@@ -1,8 +1,9 @@
 "use client";
-
+import "./globals.css";
 import Header from "@/components/Header";
 import { UserProvider, useUserContext } from "@/context/UserName";
 import LoginForm from "@/components/LoginForm";
+import Footer from "@/components/Footer";
 
 function LayoutContent({ children }: { children: React.ReactNode }) {
   const { savedUserName } = useUserContext();
@@ -13,7 +14,7 @@ function LayoutContent({ children }: { children: React.ReactNode }) {
       {savedUserName && <Header />}
 
       {/* LOGIN OR APP */}
-      {!savedUserName ? <LoginForm /> : children}
+      {!savedUserName ? (<LoginForm />) : ( <><main>{children}</main><Footer/></> )}
     </>
   );
 }
