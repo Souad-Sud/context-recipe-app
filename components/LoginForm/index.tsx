@@ -17,13 +17,24 @@ const LoginForm = () => {
     e.preventDefault();
 
     const foundUser = validUsers.find(
-      (user) => user.email === email && user.password === password,
+      (user) =>
+        user.email === email &&
+        user.password === password
     );
 
     if (foundUser) {
       setError("");
 
+      // save username in context
       setSavedUserName(foundUser.email);
+
+      // save full user in localStorage
+      localStorage.setItem(
+        "loggedUser",
+        JSON.stringify(foundUser)
+      );
+
+      console.log("User logged in");
     } else {
       setError("Invalid email or password");
     }
@@ -37,11 +48,13 @@ const LoginForm = () => {
 
       <div className="logInForm__form">
         <h1 className="logInForm__title">
-          Want to discover delicious recipes? <br />
+          Want to discover delicious recipes?
+          <br />
           Log in now.
         </h1>
 
         <form onSubmit={handleSubmit}>
+          {/* EMAIL */}
           <div className="logInForm__selectContainer">
             <select
               id="email"
@@ -54,7 +67,7 @@ const LoginForm = () => {
                 setError("");
               }}
             >
-              <option value="" className="logInForm__selecDefault">
+              <option value="">
                 Select your email
               </option>
 
@@ -64,10 +77,12 @@ const LoginForm = () => {
             </select>
           </div>
 
+          {/* PASSWORD */}
           <div className="logInForm__selectContainer">
             <select
               id="password"
               name="password"
+              required
               value={password}
               className="logInForm__selectArea"
               onChange={(e) => {
@@ -75,19 +90,28 @@ const LoginForm = () => {
                 setError("");
               }}
             >
-              <option value="" className="logInForm__selecDefault">
+              <option value="">
                 Select your password
               </option>
 
-              <option value="password1">password 1</option>
-              <option value="password2">password 2</option>
-              <option value="password3">password 3</option>
+              <option value="password">
+                password
+              </option>
             </select>
           </div>
 
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {/* ERROR */}
+          {error && (
+            <p style={{ color: "red" }}>
+              {error}
+            </p>
+          )}
 
-          <button type="submit" className="logInForm__submtBtn">
+          {/* BUTTON */}
+          <button
+            type="submit"
+            className="logInForm__submtBtn"
+          >
             Log in
           </button>
         </form>

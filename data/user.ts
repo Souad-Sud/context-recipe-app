@@ -2,15 +2,15 @@ import { UserType } from "@/utils/types/user";
 
 export const validUsers: UserType[] = [
   {
-    email: "user1",
-    password: "password1",
+    email: "Erik Bill",
+    password: "password",
   },
   {
-    email: "user2",
-    password: "password2",
+    email: "Tom Allum",
+    password: "password",
   },
   {
-    email: "user3",
-    password: "password3",
+    email: "Jane Doe",
+    password: "password",
   },
 ];

@@ -1,9 +1,9 @@
-"use client";
+const RecipePage = () => {
+    return(
+        <div>
+            <h1>Recipe Page Works</h1>
 
-export default function RecipePage() {
-  return (
-    <div>
-      <h1>Recipe Page</h1>
-    </div>
-  );
+        </div>
+    )
 }
+export default RecipePage;

@@ -8,10 +8,10 @@ export const NavItems: NavItemType[] = [
      },
 
      {
-          name: "About", link: "/about"
+          name: "Category", link: "/category"
      },
-
      {
           name: "Profile", link: "/profile"
      },
+
  ]

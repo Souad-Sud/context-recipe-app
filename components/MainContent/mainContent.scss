@@ -1,0 +1,108 @@
+@use "../../style/variables" as vars;
+@use "../../style/mixins" as mixins;
+
+.mainInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    margin: 100px 0;
+    height: 100%;
+    flex-wrap: wrap;
+    color: white; 
+
+      @include mixins.respond-max(vars.$breakpoint-tablet){
+          margin: 70px 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+      }
+
+    &__imgContainer{
+      width: 400px;
+      box-sizing: border-box;
+     
+       @include mixins.respond-max(vars.$breakpoint-tablet){
+          width: 100%;
+          max-width: 300px;
+       }
+    }
+  
+    &__imgContainer img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        flex: 1;
+        border-top-left-radius: 40px;    
+        border-bottom-left-radius: 40px;
+
+         @include mixins.respond-max(vars.$breakpoint-tablet){
+            width: 100%;
+            height: auto;
+            border-radius: 0;
+         }     
+    }
+
+    &__introContainer {
+    width: 480px;
+    box-sizing: border-box;
+    background-color: vars.$bg-main-color3;
+    display: flex;
+    flex-direction: column;
+    padding: 6px 0 0 28px;
+    justify-content: center;
+    border-top-right-radius: 40px;
+    border-bottom-right-radius: 40px;
+
+          @include mixins.respond-max(vars.$breakpoint-tablet){
+              width: 100%;
+              max-width: 488px;
+              margin: 0 auto;
+              padding: 15px;
+              border-top-right-radius:0;    
+              border-bottom-right-radius: 0;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: flex-start;
+              text-align: left;
+          }      
+    }
+
+    &__introspan {
+        margin: 0 auto;
+        padding: 2px 0;
+        font-size: 1.2rem;
+         @include mixins.respond-max(vars.$breakpoint-tablet){
+            font-size: 1rem; 
+            margin: 0;
+            padding: 0;
+         }
+    }
+    
+    &__title {
+          font-family: vars.$font_lato;
+          font-size: 4rem;
+          font-weight: normal;
+          padding-top: 20px;
+          text-align: center;
+            @include mixins.respond-max(vars.$breakpoint-tablet){
+              font-size: 2.2rem; 
+              font-weight: bold;
+              padding-top: 15px;
+            }
+    }
+
+    &__introDescription {
+          font-size: 1.3rem;
+          padding-top: 20px;
+          font-family: vars.$font_lato;
+            @include mixins.respond-max(vars.$breakpoint-tablet){
+              font-size: 1rem; 
+              padding-top: 30px;
+            }
+    }
+     
+}

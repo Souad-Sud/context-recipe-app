@@ -23,8 +23,8 @@
     text-transform: uppercase
 
    }
-   &__listItemLink.active {
-    color: red;
-    font-weight: bold;
+   &__listItemLinks.active {
+    color: vars.$bg-main-color2;
+    text-decoration: underline;
    }
 }
