@@ -9,7 +9,7 @@ import { useUserContext } from "@/context/UserName";
 const LoginForm = () => {
   const { setSavedUserName } = useUserContext();
 
-  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
@@ -18,7 +18,7 @@ const LoginForm = () => {
 
     const foundUser = validUsers.find(
       (user) =>
-        user.email === email &&
+        user.name === name &&
         user.password === password
     );
 
@@ -26,7 +26,7 @@ const LoginForm = () => {
       setError("");
 
       // save username in context
-      setSavedUserName(foundUser.email);
+      setSavedUserName(foundUser.name);
 
       // save full user in localStorage
       localStorage.setItem(
@@ -61,19 +61,19 @@ const LoginForm = () => {
               name="email"
               required
               className="logInForm__selectArea"
-              value={email}
+              value={name}
               onChange={(e) => {
-                setEmail(e.target.value);
+                setName(e.target.value);
                 setError("");
               }}
             >
               <option value="">
-                Select your email
+                Select your name
               </option>
 
-              <option value="user1">User 1</option>
-              <option value="user2">User 2</option>
-              <option value="user3">User 3</option>
+              <option value="Iness Laveto">Iness Laveto</option>
+              <option value="Lola Smith">Lola Smith</option>
+              <option value="Jane Doe">Jane Doe</option>
             </select>
           </div>
 

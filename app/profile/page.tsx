@@ -1,20 +1,17 @@
 "use client";
 
-const ProfilePage = () => {
-  const storedUser = localStorage.getItem("loggedUser");
+import ProfileContent from "@/components/ProfileContent";
+import { useUserContext } from "@/context/UserName";
 
-  const user = storedUser
-    ? JSON.parse(storedUser)
-    : null;
+const ProfilePage = () => {
+  const { savedUserName } = useUserContext();
 
   return (
     <div>
-      <h1>Profile Page</h1>
-
-      {user ? (
-        <h2>Welcome {user.email}</h2>
+      {savedUserName ? (
+        <ProfileContent />
       ) : (
-        <h2>No user logged in</h2>
+        <h1>No user logged in</h1>
       )}
     </div>
   );

@@ -74,7 +74,8 @@
     &__introspan {
         margin: 0 auto;
         padding: 2px 0;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        color: rgb(150, 243, 242);
          @include mixins.respond-max(vars.$breakpoint-tablet){
             font-size: 1rem; 
             margin: 0;
